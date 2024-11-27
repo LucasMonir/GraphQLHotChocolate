@@ -1,6 +1,7 @@
 
 using GraphQLHotChocolate.Data;
 using GraphQLHotChocolate.GraphQL;
+using GraphQLHotChocolate.GraphQL.Filter;
 using GraphQLHotChocolate.GraphQL.Mutations;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,8 +26,8 @@ namespace GraphQLHotChocolate
 				.AddGraphQLServer()
 				.AddQueryType<Query>()
 				.AddMutationType<Mutation>()
-				.AddFiltering()
-				.AddSorting();
+				.AddType<AufgabeFilterType>()
+				.AddFiltering();
 
 			var app = builder.Build();
 			app.MapGraphQL();
